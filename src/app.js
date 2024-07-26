@@ -7,7 +7,7 @@ async function app(fastify, option) {
     await fastify.register(repositoryPlugin);
     await fastify.register(servicePlugin);
     await fastify.register(apiRoutes, { prefix: '/api' });
-
+    // await fastify.register()
 }
 
 module.exports = fastifyPlugin(app);

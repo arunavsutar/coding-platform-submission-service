@@ -1,11 +1,11 @@
 const connectToDB = require('./config/db.config');
 const { PORT } = require('./config/server.config');
-// const bodyParser =require('body-parser');
+const errorHandler = require('./utils/errorhandler');
 
 const fastify = require('fastify')({ logger: true });
-// fastify.register(bodyParser.urlencoded({extended:true}));
-fastify.register(require('./app'));
 
+fastify.register(require('./app'));
+fastify.setErrorHandler(errorHandler);
 fastify.listen({ port: PORT }, async(err) => {
     if (err) {
         fastify.log.error(err);

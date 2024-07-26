@@ -1,3 +1,4 @@
+const { StatusCodes } = require("http-status-codes");
 async function pingRequest(req, res) {
     //Every controller function have access to a fastify object =>(this)
     const ans = await this.submissionService.pingcheck();//this testService is the keyname passed to the decorate function.
@@ -5,7 +6,12 @@ async function pingRequest(req, res) {
 }
 async function createSubmission(req,res){
     const ans =await this.submissionService.createSubmission(req.body);
-    return res.send(ans);
+    return res.status(StatusCodes.CREATED).send({
+        success:true,
+        message:"Code Submitted Successfully",
+        error:{},
+        data:ans
+    });
 }
 module.exports = {
     pingRequest,
