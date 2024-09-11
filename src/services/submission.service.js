@@ -34,11 +34,15 @@ class SubmissionService {
                 inputCase: problemAdminApiResponse.data.data.testCases[0].input,
                 outputCase: problemAdminApiResponse.data.data.testCases[0].output,
                 userId: userId,
-                submissionId: submission._id
+                submissionId: submission2._id
             }
         });
         return response;
         //return "Successfully featched the data from problem Service.";
+    }
+    async updateSubmission(data){
+        const response = await this.submissionRepository.updateSubmission(data.submissionId,data)
+        return response
     }
 }
 

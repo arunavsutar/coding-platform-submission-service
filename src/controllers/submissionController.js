@@ -13,6 +13,9 @@ async function createSubmission(req,res){
         data:ans
     });
 }
+async function updateSubmission(req,res){
+    
+}
 module.exports = {
     pingRequest,
     createSubmission

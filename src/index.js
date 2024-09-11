@@ -13,6 +13,6 @@ fastify.listen({ port: PORT }, async (err) => {
         process.exit(1);
     }
     await connectToDB();
-    evaluationWorker('evaluationQueue');
+    evaluationWorker(fastify,'evaluationQueue');
     console.log(`The server is listning on ${PORT}`);
 });
